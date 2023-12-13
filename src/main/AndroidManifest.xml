@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApplication"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/main_menu" />
+
+        <activity
+            android:name=".BookDetailsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_book_details"
+            android:theme="@style/Theme.MyFirstApplication" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

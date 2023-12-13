@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyFirstApplication</string>
     <string name="hello_android">你好Android</string>
+    <string name="title_activity_book_details">BookDetailsActivity</string>
 </resources>
