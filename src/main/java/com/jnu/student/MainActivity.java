@@ -116,6 +116,24 @@ public class MainActivity extends AppCompatActivity {
                         getMenuInflater().inflate(R.menu.main_menu, menu);
                         return true;
                     }
+                    public class WebViewFragment extends Fragment {
+
+                        private String url;
+
+                        public WebViewFragment(String url) {
+                            this.url = url;
+                        }
+
+                        @Nullable
+                        @Override
+                        public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+                            View view = inflater.inflate(R.layout.fragment_webview, container, false);
+                            WebView webView = view.findViewById(R.id.webView);
+                            webView.getSettings().setJavaScriptEnabled(true);
+                            webView.loadUrl(url);
+                            return view;
+                        }
+                    }
 
                     @Override
                     public boolean onOptionsItemSelected(MenuItem item) {
@@ -174,6 +192,26 @@ public class MainActivity extends AppCompatActivity {
                                     adapter.notifyItemChanged(position);
                                 }
                             }
+                        }
+                    }
+                    public class TabPagerAdapter extends FragmentStateAdapter {
+
+                        private final List<Fragment> fragments;
+
+                        public TabPagerAdapter(@NonNull FragmentActivity fragmentActivity, List<Fragment> fragments) {
+                            super(fragmentActivity);
+                            this.fragments = fragments;
+                        }
+
+                        @NonNull
+                        @Override
+                        public Fragment createFragment(int position) {
+                            return fragments.get(position);
+                        }
+
+                        @Override
+                        public int getItemCount() {
+                            return fragments.size();
                         }
                     }
 
